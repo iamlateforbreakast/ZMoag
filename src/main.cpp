@@ -4,17 +4,24 @@
 //
 //
 
+#ifdef WIN32
 #include <windows.h>
+#endif
 
+#include <iostream>
 #include <Application.h>
 
 Application* app;
-      
+
+#ifdef WIN32      
 int WINAPI
 WinMain (HINSTANCE hThisInstance,
          HINSTANCE hPrevInstance,
          LPSTR lpszArgument,
          int nFunsterStil)
+#else
+int main()
+#endif
 {
    try
    {
@@ -26,6 +33,6 @@ WinMain (HINSTANCE hThisInstance,
    }
    catch (...)
    {
-      cout << "An unhandled exception has occurred" << endl;
+      std::cout << "An unhandled exception has occurred" << std::endl;
    }
 }

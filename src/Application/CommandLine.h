@@ -19,9 +19,9 @@ class CommandLine : public Object
    public:
       CommandLine(Application* parent_object);
       ~CommandLine();
-      bool getArgument(const char option,string &parameter);
-      virtual void    save(const string fileName) const;
-      virtual void    load(const string fileName);
+      bool getArgument(const char option,std::string &parameter);
+      virtual void    save(const std::string fileName) const;
+      virtual void    load(const std::string fileName);
       virtual void    print() const;
    private:
 };

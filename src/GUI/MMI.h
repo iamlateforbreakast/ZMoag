@@ -9,8 +9,10 @@ class MMI;
 #ifndef _MMI_H_
 #define _MMI_H_
 
+#ifdef WIN32
 #include <windows.h>
-#include <list.h>
+#endif
+#include <list>
 #include <string>
 
 #include <Screen.h>
@@ -26,14 +28,14 @@ class MMI : public Object
       ScreenState getScreenState();
       void addScreen(Screen* screen);
       void navigateToScreen(ScreenState newScreen);
-      void save(const string fileName) const;
-      void load(const string fileName);
+      void save(const std::string fileName) const;
+      void load(const std::string fileName);
       void print() const;
    private:
       SDLSurface *top_window;
-      list<Screen*> screens;
+      std::list<Screen*> screens;
       Screen *currentScreen;
-      static string MMI_TITLE;
+      static std::string MMI_TITLE;
       static const int MMI_WIDTH = 1024;
       static const int MMI_HEIGHT = 768;
       MMI(const MMI &);

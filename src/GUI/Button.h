@@ -7,8 +7,8 @@
 #ifndef _BUTTON_H_
 #define _BUTTON_H_
 
-#include <SDL/SDL.h>
-#include <SDL/SDL_ttf.h>
+#include <SDL.h>
+#include <SDL_ttf.h>
 
 #include <string>
 
@@ -19,18 +19,18 @@
 class Button : public Widget
 {
    public:
-      Button(string name, unsigned int x, unsigned int y, unsigned int width, unsigned int height);
+      Button(std::string name, unsigned int x, unsigned int y, unsigned int width, unsigned int height);
       ~Button();
       ScreenState         getNavScreen();
       void                draw(SDLSurface* window);
       virtual void        processEvent(MMIEvent& e);
-      string              getName() const;
+      std::string              getName() const;
       void                setNav(ScreenState s);
-      virtual void        save(const string fileName) const;
-      virtual void        load(const string fileName);
+      virtual void        save(const std::string fileName) const;
+      virtual void        load(const std::string fileName);
       virtual void        print() const;
    private:
-      string name;
+      std::string name;
       unsigned int x;
       unsigned int y;
       unsigned int width;

@@ -31,20 +31,20 @@ class Screen : public Object
       MMIEvent processEvent(SDL_Event event);
       void addWidget(Widget* w);
       void addNavOnTimeOut(int time, ScreenState newScreen);
-      void addNavOnKeyPress(SDLKey key, ScreenState newScreen);
-      void addNavOnButtonPress(string buttonName, ScreenState newScreen);
-      void save(const string fileName) const;
-      void load(const string fileName);
+      void addNavOnKeyPress(int key, ScreenState newScreen);
+      void addNavOnButtonPress(std::string buttonName, ScreenState newScreen);
+      void save(const std::string fileName) const;
+      void load(const std::string fileName);
       void print() const;
    private:
       ScreenState screenId;
       SDL_Surface* background;
-      list<Widget*> widgets;
+      std::list<Widget*> widgets;
       unsigned int timeout;
-      SDLKey key;
+      /*SDLKey*/ int key;
       ScreenState navTimeout;
       ScreenState navKey;
-      string music_score;
+      std::string music_score;
       Screen(const Screen&);
       Screen & operator = ( const Screen &);
 };

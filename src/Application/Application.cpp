@@ -26,7 +26,7 @@ void Application::help() const
 {
 }
 
-string Application::getVersion() const
+std::string Application::getVersion() const
 {
    return version;
 }
@@ -38,7 +38,7 @@ void Application::print() const
    options->print();
 }
 
-void Application::save(const string fileName) const
+void Application::save(const std::string fileName) const
 {
    world->save(fileName);
    renderer->save(fileName);
@@ -46,7 +46,7 @@ void Application::save(const string fileName) const
    //audio->save(fileName);
 }
 
-void Application::load(const string fileName)
+void Application::load(const std::string fileName)
 {
    world->load(fileName);
    renderer->load(fileName);
@@ -111,7 +111,7 @@ void Application::handle_main_menu_events(MMIEvent MMI_event)
          //mmi->save(MMI_event.saveFileName);
          break;
       case LOAD_GAME:
-         load(string(MMI_event.parameter.string_parameter));
+         load(std::string(MMI_event.parameter.string_parameter));
          break;
       case QUIT_GAME:
          exit(0);
@@ -188,7 +188,7 @@ GameRenderer* Application::getRenderer() const
    return renderer;
 }
 
-string Application::getStringOption(string optionname)
+std::string Application::getStringOption(std::string optionname)
 {
    debug("Here again \n");
    print();

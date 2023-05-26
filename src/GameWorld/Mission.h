@@ -14,8 +14,8 @@ class Mission
       Mission();
       ~Mission();
       void start();
-      void save(const string fileName) const;
-      void load(const string fileName);
+      void save(const std::string fileName) const;
+      void load(const std::string fileName);
       void print() const;
    private:
       unsigned int money_reward;

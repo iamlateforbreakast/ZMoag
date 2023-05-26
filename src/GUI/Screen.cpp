@@ -98,7 +98,7 @@ void Screen::addNavOnTimeOut(int time, ScreenState newScreen)
    navTimeout = newScreen;
 }
 
-void Screen::addNavOnKeyPress(SDLKey key, ScreenState newScreen)
+void Screen::addNavOnKeyPress(/*SDLKey*/ int key, ScreenState newScreen)
 {
    this->key = key;
    this->navKey = newScreen;

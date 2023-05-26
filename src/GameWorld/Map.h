@@ -10,4 +10,4 @@ class Map: public Object
 {
    Map();
    ~Map();
-}
+};

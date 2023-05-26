@@ -32,17 +32,17 @@ class GameWorld : public Object
       void activateItem(WorldPoint p);
       void createNewPlayer();
       void selectCorporation();
-      void save(const string fileName) const;
-      void load(const string fileName);
+      void save(const std::string fileName) const;
+      void load(const std::string fileName);
       void print() const;
       unsigned int size() const;
    private:
-      list<Player*> players;
-      list<Mission*> missions;
+      std::list<Player*> players;
+      std::list<Mission*> missions;
       //Map* theMap;
       // bool tactical_mode;
       void generate_missions();
-      string gfx_theme;
+      std::string gfx_theme;
       bool tactical_mode;
 };
 

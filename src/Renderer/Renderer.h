@@ -11,7 +11,7 @@ class GameRenderer;
 
 #include <string>
 #include <vector>
-#include <SDL/SDL_Image.h>
+#include <SDL_image.h>
 
 #include <Object.h>
 #include <Application.h>
@@ -26,13 +26,13 @@ class GameRenderer : public Object
       GameRenderer(GameWorld* world);
       ~GameRenderer();
       void render();
-      Pixmap* renderPixmap(const string fileName);
+      Pixmap* renderPixmap(const std::string fileName);
       WorldPoint convertToWorldCoordinates(int x, int y);      
-      void save(const string fileName) const;
-      void load(const string fileName);
+      void save(const std::string fileName) const;
+      void load(const std::string fileName);
       void print() const;
    private:
-      vector<PixmapArray*> gfx_data;
+      std::vector<PixmapArray*> gfx_data;
       GameWorld* world;
 };
 

@@ -9,7 +9,9 @@ class Application;
 #ifndef  _APPLICATION_H_
 #define  _APPLICATION_H_
 
+#ifdef WIN32
 #include <windows.h>
+#endif
 #include <string>
 
 #include <Object.h>
@@ -29,17 +31,17 @@ class Application : public Object
       void                start();
       void                terminate();
       void                help() const;
-      string              getVersion() const;
+      std::string         getVersion() const;
       GameRenderer*       getRenderer() const;
-      string              getStringOption(string optionname);
-      virtual void        save(const string fileName) const;
-      virtual void        load(const string fileName);
+      std::string         getStringOption(std::string optionname);
+      virtual void        save(const std::string fileName) const;
+      virtual void        load(const std::string fileName);
       void                print() const;
       unsigned int        size() const;
       
    private:
-      string              name;
-      string              version;
+      std::string              name;
+      std::string              version;
       CommandLine        *commandLine;
       Options            *options;
       MMI                *mmi;

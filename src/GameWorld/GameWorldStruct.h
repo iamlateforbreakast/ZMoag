@@ -19,7 +19,7 @@ typedef struct s_MapInfoData
    bool occupied;
    bool discovered;
    bool isCrossable;
-   list<int> items;
+   std::list<int> items;
 };
 
 #endif

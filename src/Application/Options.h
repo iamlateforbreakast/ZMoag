@@ -18,18 +18,18 @@ class Options;
 class Options : public Object
 {
    public:
-      Options(string fileName);
+      Options(std::string fileName);
       ~Options();
-      int getIntOption(string optionName);
-      string getStringOption(string optionName);
-      void save(const string fileName) const;
-      void load(const string fileName);
+      int getIntOption(std::string optionName);
+      std::string getStringOption(std::string optionName);
+      void save(const std::string fileName) const;
+      void load(const std::string fileName);
       void print() const;
       unsigned int size() const;
    private:
       Application *app;
-      string optionFileName;
-      map<string, string> options;
+      std::string optionFileName;
+      std::map<std::string, std::string> options;
 };
 
 #endif

@@ -13,12 +13,12 @@ class Player
    public:
       Player();
       ~Player();
-      void save(const string fileName) const;
-      void load(const string fileName);
+      void save(const std::string fileName) const;
+      void load(const std::string fileName);
       void print() const;
    private:
       Corporation* corporation;
-      string name;
+      std::string name;
       bool managed_by_computer;
       unsigned int score;
       unsigned int money;

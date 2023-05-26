@@ -9,7 +9,7 @@ class Widget;
 #ifndef _WIDGET_H_
 #define _WIDGET_H_
 
-#include <SDL/SDL.h>
+#include <SDL.h>
 
 #include <Object.h>
 #include <SDLSurface.h>
@@ -25,8 +25,8 @@ class Widget : public Object
       virtual void    draw(SDLSurface* window) = 0;
       virtual void    processEvent(MMIEvent& e);
       WidgetType      getType();
-      virtual void    save(const string fileName) const;
-      virtual void    load(const string fileName);
+      virtual void    save(const std::string fileName) const;
+      virtual void    load(const std::string fileName);
       virtual void    print() const;
    protected:
       bool            clicked;
@@ -37,7 +37,7 @@ class Widget : public Object
       unsigned        int y;
       unsigned        int width;
       unsigned        int height;
-      string name;
+      std::string name;
    private:    
       Widget(const Widget &);
       Widget & operator = (const Widget &);

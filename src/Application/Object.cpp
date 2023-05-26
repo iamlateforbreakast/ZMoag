@@ -5,10 +5,11 @@
 //
 
 #include <Object.h>
+#include <stdarg.h>
 
 extern Application * app;
 
-Object::Object(Object *parent=0, string name="")
+Object::Object(Object *parent=0, std::string name="")
 {
    if (!logger)
    {

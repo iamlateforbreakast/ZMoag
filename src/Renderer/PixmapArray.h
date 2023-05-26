@@ -9,7 +9,7 @@
 class PixmapArray : public Pixmap
 {
    public:
-      PixmapArray(string filename, int nb_frames, int nb_states);
+      PixmapArray(std::string filename, int nb_frames, int nb_states);
       ~PixmapArray();
    private:
       Pixmap *     pixmap;

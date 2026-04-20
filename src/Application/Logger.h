@@ -17,7 +17,7 @@ class Logger;
 class Logger
 {
    public:
-      Logger(string fileName);
+      Logger(std::string fileName);
       ~Logger();
       void setDebugLevel(int level);
       int getDebugLevel();

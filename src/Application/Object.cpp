@@ -5,6 +5,7 @@
 //
 
 #include <Object.h>
+#include <Logger.h>
 #include <stdarg.h>
 
 extern Application * app;

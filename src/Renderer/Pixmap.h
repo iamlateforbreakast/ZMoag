@@ -8,7 +8,7 @@
 #define _PIXMAP_H_
 
 #include <string>
-#include <SDL_image.h>
+#include <SDL3_image/SDL_image.h>
 #include <Object.h>
 
 class Pixmap : public Object

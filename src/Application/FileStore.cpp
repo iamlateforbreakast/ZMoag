@@ -8,9 +8,9 @@
 
 FileStore::FileStore()
 {
-   list<string> temp;
-   list<string>::iterator p;
-   string s;
+   std::list<std::string> temp;
+   std::list<std::string>::iterator p;
+   std::string s;
    
    binary_file = false;
    compress_file = false;
@@ -32,10 +32,10 @@ FileStore::~FileStore()
 {
 }
 
-void FileStore::open(const string fileName)
+void FileStore::open(const std::string fileName)
 {
-   list<string>::iterator p;
-   string s;
+   std::list<std::string>::iterator p;
+   std::string s;
    
    handle=NULL;
    p=directories.begin();
@@ -52,7 +52,7 @@ void FileStore::close()
    fclose(handle);
 }
 
-bool FileStore::goToSection(const string sectionName)
+bool FileStore::goToSection(const std::string sectionName)
 {
 }
 
@@ -68,6 +68,6 @@ int FileStore::readInt()
 {
 }
 
-string FileStore::readString()
+std::string FileStore::readString()
 {
 }

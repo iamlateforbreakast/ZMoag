@@ -6,7 +6,7 @@
 
 #include <Logger.h>
 
-Logger::Logger(string fileName)
+Logger::Logger(std::string fileName)
 {
    output = NULL;
    if (!fileName.empty())

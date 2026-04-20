@@ -6,7 +6,7 @@
 
 #include <MiniMap.h>
 
-MiniMap::MiniMap(string name, int x, int y, int w, int h) : Widget(MINIMAP)
+MiniMap::MiniMap(std::string name, int x, int y, int w, int h) : Widget(MINIMAP)
 {
    this->name = name;
    this->x = x;
@@ -19,7 +19,7 @@ MiniMap::~MiniMap()
 {
 }
 
-void MiniMap::draw(SDLSurface* window)
+void MiniMap::draw(SDL_Surface* window)
 {
     Uint32 green;
     int i,j;
@@ -43,15 +43,15 @@ void MiniMap::processEvent(MMIEvent& e)
 {
 }
       
-string MiniMap::getName() const
+std::string MiniMap::getName() const
 {
 }
       
-void    MiniMap::save(const string fileName) const
+void    MiniMap::save(const std::string fileName) const
 {
 }
 
-void    MiniMap::load(const string fileName)
+void    MiniMap::load(const std::string fileName)
 {
 }
 

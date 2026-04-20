@@ -4,7 +4,7 @@
 //
 //
 
-#include <SDL/SDL.h>
+#include <SDL3/SDL.h>
 
 #include <Screen.h>
 

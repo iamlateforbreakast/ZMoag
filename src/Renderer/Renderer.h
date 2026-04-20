@@ -11,7 +11,7 @@ class GameRenderer;
 
 #include <string>
 #include <vector>
-#include <SDL_image.h>
+#include <SDL3_image/SDL_image.h>
 
 #include <Object.h>
 #include <Application.h>

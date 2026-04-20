@@ -9,7 +9,9 @@ class GameWithMMI;
 #ifndef _GAMEWITHMMI_H_
 #define _GAMEWITHMMI_H_
 
+#ifdef WIN32
 #include <windows.h>
+#endif
 
 #include <Application.h>
 #include <Renderer.h>

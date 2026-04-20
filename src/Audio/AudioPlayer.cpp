@@ -14,11 +14,11 @@ AudioPlayer::~AudioPlayer()
 {
 }
 
-void AudioPlayer::save(const string fileName) const
+void AudioPlayer::save(const std::string fileName) const
 {
 }
 
-void AudioPlayer::load(const string fileName)
+void AudioPlayer::load(const std::string fileName)
 {
 }
 

@@ -9,7 +9,7 @@ class Object;
 #ifndef _OBJECT_H_
 #define _OBJECT_H_
 
-//#include <Logger.h>
+#include <Logger.h>
 #include <string>
 
 class Application;
@@ -29,7 +29,7 @@ class Object
       unsigned int size() const;
    protected:
       static Application *appl;
- //     static Logger *logger;
+      static Logger *logger;
       Object      *parent;
       std::string       object_name;
    private:

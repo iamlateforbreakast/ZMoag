@@ -38,12 +38,13 @@ class Application : public Object
       virtual void        load(const std::string fileName);
       void                print() const;
       unsigned int        size() const;
-      
+   
+   protected:
+      CommandLine        *commandLine;
+      Options            *options;
    private:
       std::string              name;
       std::string              version;
-      CommandLine        *commandLine;
-      Options            *options;
       MMI                *mmi;
       GameRenderer       *renderer;
       GameWorld          *world;

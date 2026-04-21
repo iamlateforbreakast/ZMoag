@@ -10,7 +10,7 @@ Pixmap::Pixmap() : Object(NULL, "Pixmap")
 {
 }
 
-Pixmap::Pixmap(string filename) : Object(NULL, "Pixmap")
+Pixmap::Pixmap(std::string filename) : Object(NULL, "Pixmap")
 {
    data = IMG_Load(filename.c_str());
    if (!data)
@@ -26,7 +26,7 @@ Pixmap::Pixmap(string filename) : Object(NULL, "Pixmap")
 
 Pixmap::~Pixmap()
 {
-   SDL_FreeSurface(data);
+   SDL_DestroySurface(data);
 }
 
 unsigned int Pixmap::getWidth() const
@@ -48,11 +48,11 @@ SDL_Surface* Pixmap::getPixmap() const
    return data;
 }
 
-void Pixmap::save(const string fileName) const
+void Pixmap::save(const std::string fileName) const
 {
 }
 
-void Pixmap::load(const string fileName)
+void Pixmap::load(const std::string fileName)
 {
 }
 

@@ -32,6 +32,7 @@ class SDLSurface : public Object
       virtual void load(const std::string fileName);
       virtual void print() const;
    private:
+      SDL_Window  *window;
       SDL_Surface *surface;
       TTF_Font    *font;
       Uint32       color;

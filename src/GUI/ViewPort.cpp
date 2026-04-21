@@ -4,10 +4,11 @@
 //
 //
 
-#include <Viewport.h>
+#include <ViewPort.h>
 #include <Application.h>
+#include "SDLSurface.h"
 
-ViewPort::ViewPort(string name, int x, int y, int w, int h) : Widget(VIEWPORT)
+ViewPort::ViewPort(std::string name, int x, int y, int w, int h) : Widget(VIEWPORT)
 {
    this->name = name;
    this->x = x;
@@ -22,8 +23,7 @@ ViewPort::~ViewPort()
 
 void ViewPort::draw(SDLSurface* window)
 {
-    Uint32 green;
-    int i,j;
+    Uint32 green = 255;
 
     window->setColor(0,255,255);
     for (unsigned int j=y; j<y+height; j++)
@@ -44,6 +44,7 @@ void ViewPort::draw(SDLSurface* window)
 
 void ViewPort::processEvent(MMIEvent& e)
 {
+   (void)e;
    /*int xmouse,ymouse;
    
    SDL_GetMouseState(&xmouse,&ymouse);
@@ -84,7 +85,7 @@ void ViewPort::update()
    /* BiBlit Pixmap */
 }
 
-string ViewPort::getName() const
+std::string ViewPort::getName() const
 {
    return name;
 }
@@ -94,10 +95,12 @@ void ViewPort::print() const
    debug("Print ViewPort at %X\n",this);
 }
 
-void ViewPort::save(const string fileName) const
+void ViewPort::save(const std::string fileName) const
 {
+   (void)fileName;
 }
 
-void ViewPort::load(const string fileName)
+void ViewPort::load(const std::string fileName)
 {
+   (void)fileName;
 }

@@ -3,13 +3,13 @@
 //
 //
 //
-#include <fstream.h>
+#include <fstream>
 
 #include <Renderer.h>
 
 GameRenderer::GameRenderer(GameWorld* world) : Object(NULL, "Renderer")
 {
-   string filename;
+   std::string filename;
    
    // Get the gfx directory list
    filename = appl->getStringOption("GFX_directory") + "/classic.txt";
@@ -30,7 +30,7 @@ WorldPoint GameRenderer::convertToWorldCoordinates(int x, int y)
 {
 }
 
-Pixmap* GameRenderer::renderPixmap(string fileName)
+Pixmap* GameRenderer::renderPixmap(std::string fileName)
 {
    Pixmap* returned_pixmap;
    SDL_Surface *test;
@@ -49,24 +49,24 @@ Pixmap* GameRenderer::renderPixmap(string fileName)
    return returned_pixmap;
 }
 
-void GameRenderer::save(const string fileName) const
+void GameRenderer::save(const std::string fileName) const
 {
 }
 
-void GameRenderer::load(const string filename)
+void GameRenderer::load(const std::string filename)
 {
-   ifstream gfx_file;
+   std::ifstream gfx_file;
    int nb_pixmap_read = 0;
    int line_number = 0;
    int nb_frames = 0;
    int nb_states = 0;
    int total_pixmap_number = 0;
-   string pixmap_filename;
+   std::string pixmap_filename;
    
 // Load the GFX Data
    if (!filename.empty())
    {
-      gfx_file.open(filename.c_str(),fstream::in);
+      gfx_file.open(filename.c_str(),std::fstream::in);
       if (!gfx_file)
       {
          error("Cannot open %s\n",filename.c_str());

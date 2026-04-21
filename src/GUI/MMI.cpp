@@ -153,10 +153,10 @@ MMIEvent MMI::update()
    {
       switch (event.type)
       {
-         case SDL_MOUSEBUTTONDOWN:
+         case SDL_EVENT_MOUSE_BUTTON_DOWN:
             // FIXME:
             break;
-         case SDL_QUIT:
+         case SDL_EVENT_QUIT:
             //FIXME:
             exit(0);
             break;
@@ -186,7 +186,7 @@ void MMI::addScreen(Screen* screen)
 
 void MMI::navigateToScreen(ScreenState newScreen)
 {  
-   list<Screen*>::const_iterator p;
+   std::list<Screen*>::const_iterator p;
    
    if (newScreen == SPLASH)
       debug("navigating to splash\n");
@@ -218,7 +218,7 @@ void MMI::navigateToScreen(ScreenState newScreen)
 
 void MMI::print() const
 {
-   list<Screen*>::const_iterator p;
+   std::list<Screen*>::const_iterator p;
    
    debug("Print MMI at %X\n", this);
    debug("   MMI.top_window = %X\n", top_window);
@@ -235,12 +235,14 @@ void MMI::print() const
    debug("MMI.MMI_HEIGHT = %d\n",MMI_HEIGHT);
 }   
 
-void MMI::save(const string fileName) const
+void MMI::save(const std::string fileName) const
 {
+   (void)fileName;
 }
 
-void MMI::load(const string fileName)
+void MMI::load(const std::string fileName)
 {
+   (void)fileName;
 }
 
    

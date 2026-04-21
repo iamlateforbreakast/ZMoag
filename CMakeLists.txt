@@ -29,6 +29,7 @@ endif()
 # Find SDL3 and SDL3_image
 find_package(SDL3 REQUIRED)
 find_package(SDL3_image REQUIRED)
+find_package(SDL3_ttf REQUIRED)
 
 # Print found packages for debugging
 message(STATUS "SDL3 found: ${SDL3_FOUND}")
@@ -116,20 +117,15 @@ set(INCLUDE_DIRS
     ${CMAKE_SOURCE_DIR}/src/GUI
     ${CMAKE_SOURCE_DIR}/src/GameWorld
     ${CMAKE_SOURCE_DIR}/src/Renderer
-    ${SDL2_INCLUDE_DIRS}
-    ${SDL2_image_INCLUDE_DIRS}
+    ${SDL3_INCLUDE_DIRS}
+    ${SDL3_image_INCLUDE_DIRS}
 )
 
 # Create executable
 add_executable(ZMoag ${SOURCES})
 
 # Link libraries
-target_link_libraries(ZMoag
-    PRIVATE
-        ${SDL2_LIBRARIES}
-        ${SDL2_image_LIBRARIES}
-        ${PLATFORM_LIBS}
-)
+target_link_libraries(ZMoag PRIVATE SDL3::SDL3 SDL3_image::SDL3_image SDL3_ttf::SDL3_ttf)
 
 # Include directories for target
 target_include_directories(ZMoag

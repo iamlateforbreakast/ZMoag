@@ -8,12 +8,12 @@
 
 GameWithMMI::GameWithMMI(int argc,char **argv) : Application(argc, argv)
 {  
-   logger = new Logger(this, "./log_file.txt");
+   logger = new Logger("./log_file.txt");
    commandLine = new CommandLine(this);
-   options = new Options(this, "./options.txt");
+   options = new Options("./options.txt");
    audio = new AudioPlayer(this);
    world = new GameWorld(this);
-   renderer = new GameRenderer(this);
+   renderer = new GameRenderer(world);
    mmi = new MMI(this);
    
    /*if (commandLine->getArgument("",saveFileName))
@@ -44,7 +44,7 @@ void GameWithMMI::start()
    while (!exit)
    {
       world->update();
-      renderer->render(world);
+      renderer->render();
       MMI_event = mmi->update();
       switch(mmi->getScreenState())
       {
@@ -72,6 +72,11 @@ void GameWithMMI::start()
    } 
 }
 
+void GameWithMMI::print() const
+{
+   debug("Print GameWithMMI at %X\n",this);
+}
+
 void GameWithMMI::handle_main_menu_events(MMIEvent MMI_event)
 {
    switch(MMI_event.type)
@@ -94,6 +99,7 @@ void GameWithMMI::handle_main_menu_events(MMIEvent MMI_event)
 
 void GameWithMMI::handle_options_menu_events(MMIEvent MMI_event)
 {
+   (void)MMI_event;
    /*switch(MMI_event.type)
    {
       case SET_VOLUME:
@@ -107,6 +113,7 @@ void GameWithMMI::handle_options_menu_events(MMIEvent MMI_event)
 
 void GameWithMMI::handle_mission_selection_events(MMIEvent MMI_events)
 {
+   (void)MMI_events;
    /*switch(MMI_event.type)
    {
       case SELECT_MISSION:
@@ -116,6 +123,7 @@ void GameWithMMI::handle_mission_selection_events(MMIEvent MMI_events)
 
 void GameWithMMI::handle_agents_selection_events(MMIEvent MMI_events)
 {
+   (void)MMI_events;
    /*switch(MMI_event.type)
    {
       case BUY_AGENT:
@@ -125,6 +133,7 @@ void GameWithMMI::handle_agents_selection_events(MMIEvent MMI_events)
 
 void GameWithMMI::handle_corporation_creation_events(MMIEvent MMI_events)
 {
+   (void)MMI_events;
    /*switch(MMI_event.type)
    {
       case CREATE_CORPORATION:
@@ -134,6 +143,7 @@ void GameWithMMI::handle_corporation_creation_events(MMIEvent MMI_events)
 
 void GameWithMMI::handle_mission_events(MMIEvent MMI_events)
 {
+   (void)MMI_events;
    /*switch(MMI_event.type)
    {
       case MOVE:
@@ -159,11 +169,13 @@ GameRenderer* GameWithMMI::getRenderer() const
    return renderer;
 }
 
-void GameWithMMI::save(const string fileName) const
+void GameWithMMI::save(const std::string fileName) const
 {
+   (void)fileName;
 }
 
-void GameWithMMI::load(const string fileName)
+void GameWithMMI::load(const std::string fileName)
 {
+   (void)fileName;
 }
 

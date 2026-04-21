@@ -32,7 +32,7 @@ Screen::Screen(ScreenState screenId, Pixmap* background) : Object(NULL,"Screen")
 
 void Screen::draw(SDLSurface* window)
 {
-    list<Widget*>::const_iterator p;
+    std::list<Widget*>::const_iterator p;
     
     window->clear();
     print();
@@ -61,7 +61,7 @@ void Screen::draw(SDLSurface* window)
 MMIEvent Screen::processEvent(SDL_Event event)
 {
    MMIEvent returned_event;
-   list<Widget*>::const_iterator p;
+   std::list<Widget*>::const_iterator p;
    
    SDL_PumpEvents();
    returned_event.type = NONE;
@@ -73,7 +73,7 @@ MMIEvent Screen::processEvent(SDL_Event event)
       timeout = 0;
    }
   
-   Uint8 *keystate = SDL_GetKeyState(NULL);
+   const bool *keystate = SDL_GetKeyboardState(NULL);
    
    if ( keystate[key] )
    {
@@ -84,8 +84,7 @@ MMIEvent Screen::processEvent(SDL_Event event)
    p = widgets.begin();
    while (p!=widgets.end())
    {
-      if (p!=NULL)
-         (*p)->processEvent(returned_event);  
+      (*p)->processEvent(returned_event);  
       p++;
    }
  
@@ -104,9 +103,9 @@ void Screen::addNavOnKeyPress(/*SDLKey*/ int key, ScreenState newScreen)
    this->navKey = newScreen;
 }
 
-void Screen::addNavOnButtonPress(string buttonName, ScreenState newScreen)
+void Screen::addNavOnButtonPress(std::string buttonName, ScreenState newScreen)
 {
-   list<Widget*>::const_iterator p;
+   std::list<Widget*>::const_iterator p;
    
    p = widgets.begin();
    while (p!=widgets.end())
@@ -136,7 +135,7 @@ ScreenState Screen::getId() const
 
 void Screen::print() const
 {
-   list<Widget*>::const_iterator p;
+   std::list<Widget*>::const_iterator p;
    
    //      ScreenState screenId;
    debug("   Screen.background = %x\n",background);
@@ -150,13 +149,15 @@ void Screen::print() const
       
       ScreenState navTimeout;
       ScreenState navKey;
-      string music_score;
+      std::string music_score;
 }
 
-void Screen::save(const string fileName) const
+void Screen::save(const std::string fileName) const
 {
+   (void)fileName;
 }
 
-void Screen::load(const string fileName)
+void Screen::load(const std::string fileName)
 {
+   (void)fileName;
 }

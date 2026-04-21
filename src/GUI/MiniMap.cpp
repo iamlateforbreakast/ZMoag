@@ -19,10 +19,9 @@ MiniMap::~MiniMap()
 {
 }
 
-void MiniMap::draw(SDL_Surface* window)
+void MiniMap::draw(SDLSurface* window)
 {
     Uint32 green;
-    int i,j;
 
     window->setColor(0,255,255);
     for (unsigned int j=y; j<y+height; j++)
@@ -41,18 +40,22 @@ void MiniMap::draw(SDL_Surface* window)
 
 void MiniMap::processEvent(MMIEvent& e)
 {
+   (void)e;
 }
       
 std::string MiniMap::getName() const
 {
+   return name;
 }
       
 void    MiniMap::save(const std::string fileName) const
 {
+   (void)fileName;
 }
 
 void    MiniMap::load(const std::string fileName)
 {
+   (void)fileName;
 }
 
 void    MiniMap::print() const

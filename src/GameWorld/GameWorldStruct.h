@@ -20,6 +20,6 @@ typedef struct s_MapInfoData
    bool discovered;
    bool isCrossable;
    std::list<int> items;
-};
+} MapInfoData;
 
 #endif

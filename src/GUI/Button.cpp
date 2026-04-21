@@ -6,7 +6,7 @@
 
 #include <Button.h>
 
-Button::Button(string name, unsigned int x, unsigned int y, unsigned int width, unsigned int height) : Widget(BUTTON)
+Button::Button(std::string name, unsigned int x, unsigned int y, unsigned int width, unsigned int height) : Widget(BUTTON)
 {
    this->name = name;
    this->x = x;
@@ -34,9 +34,10 @@ void Button::draw(SDLSurface* window)
 
 void Button::processEvent(MMIEvent& e)
 {
-   int xmouse,ymouse;
-   
-   SDL_GetMouseState(&xmouse,&ymouse);
+   float xmouse,ymouse;
+   SDL_MouseButtonFlags mb;
+
+   mb = SDL_GetMouseState(&xmouse,&ymouse);
    if ((xmouse>=x)&&(xmouse<(x+width))&&(ymouse>=y)&&(ymouse<(y+height)))
    {
       focus = true;
@@ -45,7 +46,7 @@ void Button::processEvent(MMIEvent& e)
    {
       focus = false;
    }
-   if (SDL_GetMouseState(NULL, NULL)&SDL_BUTTON(1))
+   if (SDL_GetMouseState(NULL, NULL)&SDL_BUTTON_MASK(1))
    {
       clicked = true;
       released = false;
@@ -68,7 +69,7 @@ void Button::processEvent(MMIEvent& e)
    released = false;
 }
 
-string Button::getName() const
+std::string Button::getName() const
 {
    return name;
 }
@@ -89,10 +90,12 @@ void Button::print() const
    debug("  Nav = %d\n", navScreen);
 }
 
-void Button::save(const string fileName) const
+void Button::save(const std::string fileName) const
 {
+   (void)fileName;
 }
 
-void Button::load(const string fileName)
+void Button::load(const std::string fileName)
 {
+   (void)fileName;
 }

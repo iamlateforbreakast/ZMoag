@@ -6,7 +6,7 @@
 
 #include <ToolBar.h>
 
-ToolBar::ToolBar(string name, int x, int y, int w, int h) : Widget(TOOLBAR)
+ToolBar::ToolBar(std::string name, int x, int y, int w, int h) : Widget(TOOLBAR)
 {
    this->name = name;
    this->x = x;
@@ -22,7 +22,6 @@ ToolBar::~ToolBar()
 void ToolBar::draw(SDLSurface* window)
 {
     Uint32 green;
-    int i,j;
 
     window->setColor(0,255,255);
     for (unsigned int j=y; j<y+height; j++)
@@ -41,18 +40,22 @@ void ToolBar::draw(SDLSurface* window)
 
 void ToolBar::processEvent(MMIEvent& e)
 {
+   (void)e;
 }
 
-string ToolBar::getName() const
+std::string ToolBar::getName() const
 {
+   return name;
 }
 
-void ToolBar::save(const string fileName) const
+void ToolBar::save(const std::string fileName) const
 {
+   (void)fileName;
 }
 
-void ToolBar::load(const string fileName)
+void ToolBar::load(const std::string fileName)
 {
+   (void)fileName;
 }
 
 void ToolBar::print() const

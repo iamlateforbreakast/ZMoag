@@ -6,7 +6,7 @@
 
 #include <PixmapArray.h>
 
-PixmapArray::PixmapArray(string filename, int nb_frames, int nb_state)
+PixmapArray::PixmapArray(std::string filename, int nb_frames, int nb_state)
 {
    this->pixmap = new Pixmap(filename);
    this->nb_frames = nb_frames;

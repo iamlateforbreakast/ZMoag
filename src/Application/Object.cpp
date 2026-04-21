@@ -10,7 +10,7 @@
 
 extern Application * app;
 
-Object::Object(Object *parent=0, std::string name="")
+Object::Object(Object *parent, std::string name)
 {
    if (!logger)
    {

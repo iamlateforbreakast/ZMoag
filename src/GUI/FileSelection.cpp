@@ -6,7 +6,7 @@
 
 #include <FileSelection.h>
 
-FileSelection::FileSelection(string name, int x, int y, int w, int h) : Widget(FILE_SELECTOR)
+FileSelection::FileSelection(std::string name, int x, int y, int w, int h) : Widget(FILE_SELECTOR)
 {
    this->name = name;
    this->x = x;
@@ -41,11 +41,11 @@ void FileSelection::draw(SDLSurface* window)
     //SDL_UpdateRect(window, 0, 0, 1024, 768);
 }
 
-void    FileSelection::save(const string fileName) const
+void    FileSelection::save(const std::string fileName) const
 {
 }
 
-void    FileSelection::load(const string fileName)
+void    FileSelection::load(const std::string fileName)
 {
 }
 

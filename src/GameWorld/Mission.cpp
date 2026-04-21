@@ -20,7 +20,7 @@ void Mission::start()
  // AudioPlayer::load SFX theme
 }
 
-void Mission::load(const string filename)
+void Mission::load(const std::string filename)
 {
 }
 

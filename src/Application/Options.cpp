@@ -4,12 +4,12 @@
 //
 //
 
-#include <fstream.h>
+#include <fstream>
 
 #include <Options.h>
 #include <Application.h>
 
-Options::Options(string fileName)
+Options::Options(std::string fileName)
 {
    optionFileName = fileName;
    load(fileName);
@@ -20,31 +20,31 @@ Options::~Options()
    save(optionFileName);
 }
 
-int Options::getIntOption(string optionName)
+int Options::getIntOption(std::string optionName)
 {
    return(atoi(options[optionName].data()));
 }
 
-string Options::getStringOption(string optionName)
+std::string Options::getStringOption(std::string optionName)
 {
    debug("Option name = %s\n",optionName.c_str());
    return(options[optionName]);
 }
 
-void Options::save(const string fileName) const
+void Options::save(const std::string fileName) const
 {
 }
 
-void Options::load(const string fileName)
+void Options::load(const std::string fileName)
 {
-   ifstream options_file;
-   string optionName;
-   string optionValue;
-   string buffer;
+   std::ifstream options_file;
+   std::string optionName;
+   std::string optionValue;
+   std::string buffer;
    unsigned int line_number;
    int equal_position;
    
-   options_file.open(fileName.data(),fstream::in);
+   options_file.open(fileName.data(),std::fstream::in);
    if (!options_file.is_open())
    {
       error("Cannot open option file %s\n",fileName.c_str());

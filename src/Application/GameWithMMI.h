@@ -29,8 +29,8 @@ class GameWithMMI : public Application
       
       // FIXME: Add a copy constructor and a copy operator
       GameRenderer* getRenderer() const;
-      virtual void save(const string fileName) const;
-      virtual void load(const string fileName);
+      virtual void save(const std::string fileName) const;
+      virtual void load(const std::string fileName);
       void print() const;
       unsigned int size() const;
       virtual void start();

@@ -177,6 +177,7 @@ MMIEvent MMI::update()
 
 ScreenState MMI::getScreenState()
 {
+   return currentScreen->getId();
 }
 
 void MMI::addScreen(Screen* screen)

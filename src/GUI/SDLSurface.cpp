@@ -42,7 +42,7 @@ SDLSurface::SDLSurface(unsigned int w, unsigned int h) : Object(NULL, "SDLSurfac
       info("TTF successfully initialised\n");
    }
    
-   font=TTF_OpenFont("./arial.ttf", 16);
+   font=TTF_OpenFont("./fonts/LiberationSans-Regular.ttf", 16);
    if(!font) {
       error("TTF_OpenFont: %s\n", SDL_GetError());
    }
@@ -122,7 +122,7 @@ void SDLSurface::setFont(const std::string fontName)
 {
    (void)fontName;
    // load font.ttf at size 16 into font
-   font=TTF_OpenFont("./arial.ttf", 16);
+   font=TTF_OpenFont("./fonts/LiberationSans-Regular.ttf", 16);
    if(!font) {
       error("TTF_OpenFont: %s\n", SDL_GetError());
    }

@@ -11,6 +11,7 @@
 Screen::Screen()
 {
    timeout = 0;
+   key = SDL_SCANCODE_UNKNOWN;
 }
 
 Screen::~Screen()
@@ -20,6 +21,7 @@ Screen::~Screen()
 Screen::Screen(ScreenState screenId, Pixmap* background) : Object(NULL,"Screen")
 {
    timeout = 0;
+   key = SDL_SCANCODE_UNKNOWN;
    this->screenId = screenId;
    
    debug("   Screen.background = %x\n",background);
@@ -99,7 +101,8 @@ void Screen::addNavOnTimeOut(int time, ScreenState newScreen)
 
 void Screen::addNavOnKeyPress(/*SDLKey*/ int key, ScreenState newScreen)
 {
-   this->key = key;
+   // SDL_GetKeyboardState() is indexed by scancode, not keycode
+   this->key = SDL_GetScancodeFromKey(key, NULL);
    this->navKey = newScreen;
 }
 
